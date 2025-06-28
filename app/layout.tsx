@@ -4,7 +4,8 @@ import "./globals.css";
 import {
   ClerkProvider,
 } from '@clerk/nextjs'
-import Provider from "./Provider";
+// For hosting i ahve cahnged the name from Provider -> provider
+import Provider from "./provider";
 
 
 const geistSans = Geist({

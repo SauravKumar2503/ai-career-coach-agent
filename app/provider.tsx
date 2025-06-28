@@ -41,3 +41,28 @@ export default Provider
 
 
 
+// "use client";
+
+// import { useUser } from "@clerk/nextjs";
+// import axios from "axios";
+// import { useEffect } from "react";
+
+// export default function Provider({ children }: { children: React.ReactNode }) {
+//   const { user } = useUser();
+
+//   useEffect(() => {
+//     if (user) {
+//       createNewUser();
+//     }
+//   }, [user]);
+
+//   const createNewUser = async () => {
+//     try {
+//       await axios.post("/api/user");
+//     } catch (error) {
+//       console.error("Failed to create user:", error);
+//     }
+//   };
+
+//   return <>{children}</>;
+// }
