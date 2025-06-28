@@ -1,3 +1,4 @@
+export const runtime = "nodejs";
 import { NextRequest, NextResponse } from "next/server";
 import { eq } from "drizzle-orm";
 import { db } from "@/configs/db";
@@ -38,6 +39,13 @@ export async function POST(req: NextRequest) {
 
         return NextResponse.json(insertedUsers[0]);
     } catch (e: any) {
+        console.error("🔥 Error in POST /api/user:", e);
         return NextResponse.json({ error: e.message || "Server error" }, { status: 500 });
     }
 }
+
+
+
+
+
+
