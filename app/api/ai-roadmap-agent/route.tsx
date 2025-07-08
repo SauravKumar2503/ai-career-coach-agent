@@ -3,7 +3,6 @@ import { inngest } from "@/inngest/client";
 import { currentUser } from "@clerk/nextjs/server";
 import axios from "axios";
 
-
 export async function POST(req:NextRequest){
   const {roadmapId,userInput} = await req.json();
   const user = await currentUser();
@@ -48,6 +47,47 @@ export async function getRuns(runId: string) {
 
   return result.data;
 }
+
+
+
+
+
+
+// import { NextRequest } from "next/server";
+// import { inngest } from "@/inngest/client";
+// import { currentUser } from "@clerk/nextjs/server"; 
+
+
+// export async function POST(req:NextRequest){
+//   const {roadmapId,userInput} = await req.json();
+//   const user = await currentUser();
+//   const resultIds = await inngest.send({
+//     name: "AiRoadMapAgent",
+//     data: {
+//       userInput,
+//       roadmapId:roadmapId,
+//       userEmail: user?.primaryEmailAddress?.emailAddress
+//     },
+//   });
+//   const runId = resultIds?.ids?.[0];
+//   console.log(runId);
+//   let runStatus;
+//   // User polling to check Run Status
+//   while (true) {
+//     runStatus = await getRuns(runId);
+//     console.log(runStatus);
+//     if (runStatus?.data?.[0]?.status === "Completed"){
+//       break;
+//     }
+//     if (runStatus?.data[0]?.status === "Cancelled"){
+//       break;
+//     }
+//     await new Promise(resolve => setTimeout(resolve,500))
+//   }
+
+// }
+
+
 
 
 
